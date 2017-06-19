@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="FreeBoardMapper">
+  
+ <!--  <select id="count" resultType="int">
+  	select count(num) from freeboard
+  </select>
+  
+  <select id="list" resultType="com.choa.freeboard.FreeBoardDTO" parameterType="com.choa.util.RowMaker">
+  	select * from 
+		(select rownum R, N.* from
+		(select * from freeboard order by num desc) N)
+		where R between #{startRow} and #{lastRow}
+  </select>
+  
+  <select id="view" parameterType="java.lang.Integer" resultType="com.choa.freeboard.FreeBoardDTO">
+  	select * from freeboard where num=#{num}
+  </select>
+   -->
+  <insert id="write" parameterType="com.choa.freeboard.FreeBoardDTO">
+  	insert into freeboard values (test_seq.nextval, #{writer}, #{title}, #{contents}, sysdate, 0, 0, 0, 0)
+  </insert>
+  
+  <update id="update" parameterType="com.choa.freeboard.FreeBoardDTO">
+  	update freeboard set title=#{title}, contents=#{contents} where num=#{num}
+  </update>
+  
+  <delete id="delete" parameterType="java.lang.Integer">
+	delete freeboard where num=#{num}  	
+  </delete>
+  
+  
+  </mapper>

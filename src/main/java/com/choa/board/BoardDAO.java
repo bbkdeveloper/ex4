@@ -23,8 +23,10 @@ public interface BoardDAO {
 	public int boardDelete(int num)throws Exception;
 	
 	//Count
-	public int boardCount(int num)throws Exception;
+	public int boardCount() throws Exception;
 	
 	//hit
 	public void boardHit(int num)throws Exception;
+
+	
 }

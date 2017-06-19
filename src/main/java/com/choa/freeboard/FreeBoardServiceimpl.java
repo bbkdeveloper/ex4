@@ -17,10 +17,13 @@ public class FreeBoardServiceimpl {
 	
 	
 	public List<BoardDTO> boardList(int curPage)throws Exception{
-		PageMaker pageMaker = new PageMaker(curPage, 30);
+		int result = freeBoardDAOimpl.boardCount();
 		
+		PageMaker pageMaker = new PageMaker(curPage);
+		pageMaker.getMakePage(result);
 		return freeBoardDAOimpl.boardList(pageMaker.getRowMaker("",""));
-		
+
 	}
+	
 
 }
